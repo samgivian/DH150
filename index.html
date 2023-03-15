@@ -23,6 +23,20 @@
         bottom: 0;
         width: 100%;
       }
+      #fit {
+        display: block;
+        position: relative;
+        
+        width: 20%;
+        
+        padding: 5px;
+        border: none;
+        border-radius: 3px;
+        font-size: 15px;
+        
+        color: #000;
+        background: #ee8a65;
+      }
     </style>
   </head>
   <body>
@@ -33,6 +47,27 @@
       }
     </style>
     <div id="map"></div>
+    <div id="fit">
+        <h2>Los Angeles County</h2>
+        <p><strong>Median Income: </strong> $77,456 </p>
+        <p><strong>Median Age : </strong>  37.8</p>
+        <p><strong>Gender : </strong>  male: 49.6% female: 50.4%</p>
+        <p><strong>Race : </p>
+        <ul>
+        <li>One race - 79.8%</li>
+        <ul>
+        <li>White - 29.6%</li>
+        <li>Black/African American - 7.6%</li>
+        <li>American Indian/Alaskan Native - 1.7%</li>
+        <li>Asian - 14.8%</li>
+        <li>Native Hawaiian/Other Pacific Islander - 0.2%</li>
+        <li>Some Other Race - 25.9%</li>
+        </ul>
+       <li>Two or More Races - 20.2%</li>
+       </ul>  
+      
+    </div>
+
     <script>
       mapboxgl.accessToken =
         "pk.eyJ1Ijoic2FtYW5naXZpYW4iLCJhIjoiY2twZDBuc2QwMDA0aTJvbzg2cTNieW03dCJ9.sz-KO-BSc0JsLg6a6HWL9A";
@@ -44,24 +79,38 @@
         zoom: 11.15,
       });
 
-      var popup = new mapboxgl.Popup({ offset: [10, -20] }).setText(
-        "Construction on the Washington Monument began in 1848."
+      //BellAir
+      var BelAirPopup = new mapboxgl.Popup({ offset: [10, -20] }).setHTML(
+        "\
+        <div>\
+        <h2>Bel Air</h2>\
+        <p><strong>Median Income: </strong> $200,625 </p>\
+        <p><strong>Median Age : </strong>  47.5</p>\
+        <p><strong>Gender : </strong>  male: 48.6% female: 51.4%</p>\
+        <p><strong>Race : </p>\
+        <ul>\
+        <li>One race - 89.3%</li>\
+        <ul>\
+        <li>White - 78.7%</li>\
+        <li>Black/African American - 1.7%</li>\
+        <li>American Indian/Alaskan Native - 0%</li>\
+        <li>Asian - 7.5%</li>\
+        <li>Native Hawaiian/Other Pacific Islander - 0%</li>\
+        <li>Some Other Race - 1.4%</li>\
+        </ul>\
+       <li>Two or More Races - 10.7%</li>\
+       </ul>  \
+        </div>\
+        "
       );
-
-      // create the marker
-      let marker = new mapboxgl.Marker({ color: 'black' }).setLngLat([-118.45179, 34.08857]);
-
-      // get the marker element
-      const element = marker.getElement();
-
-      // hover event listener
-      element.addEventListener("mouseenter", () => popup.addTo(map));
-      element.addEventListener("mouseleave", () => popup.remove());
-
-      // add popup to marker
-      marker.setPopup(popup);
-      // add marker to map
-      marker.addTo(map);
+      let BelAirMarker = new mapboxgl.Marker({ color: "black" }).setLngLat([
+        -118.45179, 34.08857,
+      ]);
+      const BelAirelement = BelAirMarker.getElement();
+      BelAirelement.addEventListener("mouseenter", () => popup.addTo(map));
+      BelAirelement.addEventListener("mouseleave", () => popup.remove());
+      BelAirMarker.setPopup(BelAirPopup);
+      BelAirMarker.addTo(map);
     </script>
   </body>
 </html>
