@@ -26,14 +26,11 @@
       #fit {
         display: block;
         position: relative;
-        
         width: 20%;
-        
-        padding: 5px;
+        padding: 10px;
         border: none;
         border-radius: 3px;
-        font-size: 15px;
-        
+        font-size: 16px;
         color: #000;
         background: #ee8a65;
       }
@@ -75,11 +72,11 @@
         container: "map",
         // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
         style: "mapbox://styles/mapbox/streets-v12",
-        center: [-118.243683, 34.052235],
-        zoom: 11.15,
+        center: [-118.243683, 33.72235],
+        zoom: 9,
       });
 
-      //BellAir
+      //BelAir
       var BelAirPopup = new mapboxgl.Popup({ offset: [10, -20] }).setHTML(
         "\
         <div>\
@@ -89,17 +86,17 @@
         <p><strong>Gender : </strong>  male: 48.6% female: 51.4%</p>\
         <p><strong>Race : </p>\
         <ul>\
-        <li>One race - 89.3%</li>\
+          <li>One race - 89.3%</li>\
         <ul>\
-        <li>White - 78.7%</li>\
-        <li>Black/African American - 1.7%</li>\
-        <li>American Indian/Alaskan Native - 0%</li>\
-        <li>Asian - 7.5%</li>\
-        <li>Native Hawaiian/Other Pacific Islander - 0%</li>\
-        <li>Some Other Race - 1.4%</li>\
+          <li>White - 78.7%</li>\
+          <li>Black/African American - 1.7%</li>\
+          <li>American Indian/Alaskan Native - 0%</li>\
+          <li>Asian - 7.5%</li>\
+          <li>Native Hawaiian/Other Pacific Islander - 0%</li>\
+          <li>Some Other Race - 1.4%</li>\
         </ul>\
-       <li>Two or More Races - 10.7%</li>\
-       </ul>  \
+          <li>Two or More Races - 10.7%</li>\
+        </ul>  \
         </div>\
         "
       );
@@ -107,10 +104,187 @@
         -118.45179, 34.08857,
       ]);
       const BelAirelement = BelAirMarker.getElement();
-      BelAirelement.addEventListener("mouseenter", () => popup.addTo(map));
+      BelAirelement.addEventListener("mouseover", () => popup.addTo(map));
       BelAirelement.addEventListener("mouseleave", () => popup.remove());
       BelAirMarker.setPopup(BelAirPopup);
       BelAirMarker.addTo(map);
+
+
+    //Hidden Hills
+       var HiddenHillsPopup = new mapboxgl.Popup({ offset: [10, -20] }).setHTML(
+        "\
+        <div>\
+        <h2>Hidden Hills</h2>\
+        <p><strong>Median Income: </strong> $146,521 </p>\
+        <p><strong>Median Age : </strong>  44.5</p>\
+        <p><strong>Gender : </strong>male: 49% female: 51%</p>\
+        <p><strong>Race : </p>\
+        <ul>\
+         <li>One race - 91%</li>\
+        <ul>\
+          <li>White - 78.2%</li>\
+          <li>Black/African American -  2.6%</li>\
+          <li>American Indian/Alaskan Native - 1%</li>\
+          <li>Asian - 8.7%</li>\
+          <li>Native Hawaiian/Other Pacific Islander - 0%</li>\
+          <li>Some Other Race - 1.3%</li>\
+        </ul>\
+        <li>Two or More Races - 8.2%</li>\
+        </ul>  \
+        </div>\
+        "
+      );
+      let HiddenHillsMarker = new mapboxgl.Marker({ color: "gray" }).setLngLat([
+        -118.6648, 34.1649,
+      ]);
+      const HiddenHillselement = HiddenHillsMarker.getElement();
+      HiddenHillselement.addEventListener("onmouseover", () => popup.addTo(map));
+      HiddenHillselement.addEventListener("mouseleave", () => popup.remove());
+      HiddenHillsMarker.setPopup(HiddenHillsPopup);
+      HiddenHillsMarker.addTo(map);
+
+
+
+  //Rolling Hills
+  var RollingHillsPopup = new mapboxgl.Popup({ offset: [10, -20] }).setHTML(
+        "\
+        <div>\
+        <h2>RollingHills</h2>\
+        <p><strong>Median Income: </strong> $186,144 </p>\
+        <p><strong>Median Age : </strong>  51.0</p>\
+        <p><strong>Gender : </strong>male: 49.4% female: 50.6%</p>\
+        <p><strong>Race : </p>\
+        <ul>\
+        <li>One race - 93.3%</li>\
+        <ul>\
+          <li>White - 66.5%</li>\
+          <li>Black/African American -  3%</li>\
+          <li>American Indian/Alaskan Native - 0%</li>\
+          <li>Asian - 23.3%</li>\
+          <li>Native Hawaiian/Other Pacific Islander - 0%</li>\
+          <li>Some Other Race - 0.5%</li>\
+        </ul>\
+          <li>Two or More Races - 6.7%</li>\
+        </ul>  \
+        </div>\
+        "
+      );
+      let RollingHillsMarker = new mapboxgl.Marker({ color: "purple" }).setLngLat([
+        -118.3540,33.7570
+      ]);
+      const RollingHillselement = RollingHillsMarker.getElement();
+      RollingHillselement.addEventListener("onmouseover", () => popup.addTo(map));
+      RollingHillselement.addEventListener("mouseleave", () => popup.remove());
+      RollingHillsMarker.setPopup(RollingHillsPopup);
+      RollingHillsMarker.addTo(map);
+
+
+
+
+
+  //Downtown
+  var DowntownPopup = new mapboxgl.Popup({ offset: [10, -20] }).setHTML(
+        "\
+        <div>\
+        <h2>Downtown</h2>\
+        <p><strong>Median Income: </strong> $22,291 </p>\
+        <p><strong>Median Age : </strong>42.8</p>\
+        <p><strong>Gender : </strong>  male: 62.1% female: 37.9%</p>\
+        <p><strong>Race : </p>\
+        <ul>\
+        <li>One race - 88.8%</li>\
+        <ul>\
+          <li>White - 34.6%</li>\
+          <li>Black/African American - 28.3%</li>\
+          <li>American Indian/Alaskan Native - 1.6%</li>\
+          <li>Asian - 14.3%</li>\
+          <li>Native Hawaiian/Other Pacific Islander - 1%</li>\
+          <li>Some Other Race - 9%</li>\
+        </ul>\
+          <li>Two or More Races - 9%</li>\
+        </ul>  \
+        </div>\
+        "
+      );
+      let DowntownMarker = new mapboxgl.Marker({ color: "yellow" }).setLngLat([
+        -118.2439, 34.0653,
+      ]);
+      const Downtownelement = DowntownMarker.getElement();
+      Downtownelement.addEventListener("mouseover", () => popup.addTo(map));
+      Downtownelement.addEventListener("mouseleave", () => popup.remove());
+      DowntownMarker.setPopup(DowntownPopup);
+      DowntownMarker.addTo(map);
+
+
+
+  //University Park
+  var UniversityParkPopup = new mapboxgl.Popup({ offset: [10, -20] }).setHTML(
+        "\
+        <div>\
+        <h2>University Park</h2>\
+        <p><strong>Median Income: </strong> $33,222 </p>\
+        <p><strong>Median Age : </strong>25.2</p>\
+        <p><strong>Gender : </strong>  male: 50.9% female: 49.1%</p>\
+        <p><strong>Race : </p>\
+        <ul>\
+          <li>One race - 90.1%</li>\
+          <ul>\
+          <li>White - 34.8%</li>\
+          <li>Black/African American - 10.4%</li>\
+          <li>American Indian/Alaskan Native - 0.6%</li>\
+          <li>Asian - 18.7%</li>\
+          <li>Native Hawaiian/Other Pacific Islander - 0.1%</li>\
+          <li>Some Other Race - 9%</li>\
+        </ul>\
+          <li>Two or More Races -  9.9%</li>\
+        </ul>  \
+        </div>\
+        "
+      );
+      let UniversityParkMarker = new mapboxgl.Marker({ color: "red" }).setLngLat([
+        -118.2790, 34.0310,
+      ]);
+      const UniversityParkelement = UniversityParkMarker.getElement();
+      UniversityParkelement.addEventListener("mouseover", () => popup.addTo(map));
+      UniversityParkelement.addEventListener("mouseleave", () => popup.remove());
+      UniversityParkMarker.setPopup(UniversityParkPopup);
+      UniversityParkMarker.addTo(map);
+
+
+
+  //Chinatown
+  var ChinatownPopup = new mapboxgl.Popup({ offset: [10, -20] }).setHTML(
+        "\
+        <div>\
+        <h2>Chinatown</h2>\
+        <p><strong>Median Income: </strong> $53,278 </p>\
+        <p><strong>Median Age : </strong>34.9</p>\
+        <p><strong>Gender : </strong>  male: 63.5% female: 36.5%</p>\
+        <p><strong>Race : </p>\
+        <ul>\
+          <li>One race - 91.9%</li>\
+          <ul>\
+          <li>White - 25.3%</li>\
+          <li>Black/African American - 13.8%</li>\
+          <li>American Indian/Alaskan Native - 1.1%</li>\
+          <li>Asian - 34.2%</li>\
+          <li>Native Hawaiian/Other Pacific Islander - 0.2%</li>\
+          <li>Some Other Race - 17.3%</li>\
+        </ul>\
+          <li>Two or More Races -  8.1%</li>\
+        </ul>  \
+        </div>\
+        "
+      );
+      let ChinatownMarker = new mapboxgl.Marker({ color: "blue" }).setLngLat([
+        -118.2383, 34.0623,
+      ]);
+      const Chinatownelement = ChinatownMarker.getElement();
+      Chinatownelement.addEventListener("mouseover", () => popup.addTo(map));
+      Chinatownelement.addEventListener("mouseleave", () => popup.remove());
+      ChinatownMarker.setPopup(ChinatownPopup);
+      ChinatownMarker.addTo(map);
+
     </script>
   </body>
 </html>
